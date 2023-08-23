@@ -1,4 +1,5 @@
 // icons
+import Link from "next/link";
 import {
   HiHome,
   HiUser,
@@ -6,28 +7,36 @@ import {
   HiRectangleGroup,
   HiChatBubbleBottomCenterText,
   HiEnvelope,
-} from 'react-icons/hi2';
+} from "react-icons/hi2";
 
 // nav data
 export const navData = [
-  { name: 'home', path: '/', icon: <HiHome /> },
-  { name: 'about', path: '/about', icon: <HiUser /> },
-  { name: 'services', path: '/services', icon: <HiRectangleGroup /> },
-  { name: 'work', path: '/work', icon: <HiViewColumns /> },
+  { name: "home", path: "/", icon: <HiHome /> },
+  { name: "about", path: "/about", icon: <HiUser /> },
+  { name: "services", path: "/services", icon: <HiRectangleGroup /> },
+  { name: "work", path: "/work", icon: <HiViewColumns /> },
   {
-    name: 'testimonials',
-    path: '/testimonials',
+    name: "testimonials",
+    path: "/testimonials",
     icon: <HiChatBubbleBottomCenterText />,
   },
   {
-    name: 'contact',
-    path: '/contact',
+    name: "contact",
+    path: "/contact",
     icon: <HiEnvelope />,
   },
 ];
 
 const Nav = () => {
-  return <nav>nav</nav>;
+  return (
+    <nav>
+      <di>
+        {navData.map((link, index) => {
+          return <Link href={link.path}>{link.icon}</Link>;
+        })}{" "}
+      </di>
+    </nav>
+  );
 };
 
 export default Nav;
